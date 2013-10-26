@@ -4,11 +4,11 @@ describe 'About Objects', ->
     beforeEach -> meglomaniac = mastermind: 'Joker', henchwoman: 'Harley'
 
     it 'should confirm objects are collections of properties', ->
-      expect(meglomaniac.mastermind).toBe(FILL_ME_IN)
+      expect(meglomaniac.mastermind).toBe('Joker')
 
     it 'should confirm that properties are case sensitive', ->
-      expect(meglomaniac.henchwoman).toBe(FILL_ME_IN)
-      expect(meglomaniac.henchWoman).toBe(FILL_ME_IN)
+      expect(meglomaniac.henchwoman).toBe('Harley')
+      expect(meglomaniac.henchWoman).toBe(undefined)
   # end Properties section
 
   it 'should know properties that are functions act like methods', ->
@@ -21,7 +21,7 @@ describe 'About Objects', ->
         Array(noOfBrains + 1).join(' ' + @mastermind) # In Coffeescript '@' = 'this'
 
     battleCry = meglomaniac.battleCry 4
-    expect(FILL_ME_IN).toMatch(battleCry)
+    expect('They are Pinky and the Brain Brain Brain Brain').toMatch(battleCry)
 
 
   it "should confirm that when a function is attached to an object, 'this' refers to the object", ->
@@ -32,8 +32,8 @@ describe 'About Objects', ->
       birthYear: 1970
       calculateAge: -> currentYear - @birthYear
 
-    expect(currentYear).toBe(FILL_ME_IN)
-    expect(meglomaniac.calculateAge()).toBe(FILL_ME_IN)
+    expect(currentYear).toBe(2013)
+    expect(meglomaniac.calculateAge()).toBe(2013-1970)
 
 
   describe "'in' keyword", ->
