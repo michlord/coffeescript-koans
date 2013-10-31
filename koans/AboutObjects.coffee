@@ -46,11 +46,11 @@ describe 'About Objects', ->
 
     it 'should have the bomb', ->
       hasBomb = meglomaniac.theBomb? # ? is the existence operator
-      expect(hasBomb).toBe(FILL_ME_IN)
+      expect(hasBomb).toBe(true)
 
     it 'should not have the detonator however', ->
       hasDetonator = meglomaniac.theDetonator?
-      expect(hasDetonator).toBe(FILL_ME_IN)
+      expect(hasDetonator).toBe(false)
   # end 'in' keyword section
 
   it 'should know that properties can be added and deleted', ->
@@ -58,13 +58,13 @@ describe 'About Objects', ->
       mastermind : 'Agent Smith'
       henchman: 'Agent Smith'
 
-    expect(meglomaniac.secretary?).toBe(FILL_ME_IN)
+    expect(meglomaniac.secretary?).toBe(false)
 
     meglomaniac.secretary = 'Agent Smith'
-    expect(meglomaniac.secretary?).toBe(FILL_ME_IN)
+    expect(meglomaniac.secretary?).toBe(true)
 
     delete meglomaniac.henchman
-    expect(meglomaniac.henchman?).toBe(FILL_ME_IN)
+    expect(meglomaniac.henchman?).toBe(false)
 
 
   it 'should use prototype to add to all objects', ->
@@ -74,12 +74,12 @@ describe 'About Objects', ->
       colouredCircle = new Circle(5)
       colouredCircle.colour = 'red'
 
-      expect(simpleCircle.colour).toBe(FILL_ME_IN)
-      expect(colouredCircle.colour).toBe(FILL_ME_IN)
+      expect(simpleCircle.colour).toBe(undefined)
+      expect(colouredCircle.colour).toBe('red')
 
       Circle.prototype.describe = -> 'This circle has a radius of: ' + @radius
 
-      expect(simpleCircle.describe()).toBe(FILL_ME_IN)
-      expect(colouredCircle.describe()).toBe(FILL_ME_IN)
+      expect(simpleCircle.describe()).toBe('This circle has a radius of: 10')
+      expect(colouredCircle.describe()).toBe('This circle has a radius of: 5')
 
 
